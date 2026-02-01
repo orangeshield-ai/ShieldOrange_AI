@@ -1,0 +1,91 @@
+# OrangeShield AI - Python Requirements
+# Install with: pip install -r requirements.txt
+
+# Core AI/ML
+anthropic==0.40.0              # Claude Sonnet 4 API
+numpy==1.26.4
+pandas==2.2.0
+
+# Web APIs and HTTP
+requests==2.31.0
+urllib3==2.2.0
+
+# Database
+psycopg2-binary==2.9.9         # PostgreSQL adapter
+SQLAlchemy==2.0.25             # ORM (optional)
+
+# Scheduling and async
+schedule==1.2.1                # Job scheduling
+APScheduler==3.10.4            # Advanced scheduling (alternative)
+
+# Data processing
+python-dateutil==2.8.2
+pytz==2024.1
+
+# Geospatial (for satellite data)
+Shapely==2.0.2                 # Geometric operations
+geopandas==0.14.3              # Geographic data
+rasterio==1.3.9                # Raster data (satellite imagery)
+# GDAL==3.8.3                  # Geospatial Data Abstraction Library (system-level install)
+
+# Satellite imagery
+planet==2.5.0                  # Planet Labs API
+sentinelsat==1.2.1             # Sentinel-2 downloads
+
+# Weather data parsing
+metpy==1.6.0                   # Meteorology toolkit
+cfgrib==0.9.10.4              # GRIB2 file parsing (weather models)
+netCDF4==1.6.5                # NetCDF file format
+
+# Market data (optional)
+yfinance==0.2.36              # Historical market data
+polygon-api-client==1.12.2    # Real-time market data (alternative)
+
+# Monitoring and logging
+python-json-logger==2.0.7     # JSON structured logging
+sentry-sdk==1.40.0            # Error tracking (optional)
+
+# Alerts and notifications
+twilio==8.12.0                # SMS alerts (optional)
+sendgrid==6.11.0              # Email alerts (optional)
+slack-sdk==3.26.2             # Slack notifications (optional)
+
+# API and web framework (for API server)
+fastapi==0.109.2              # REST API framework
+uvicorn==0.27.1               # ASGI server
+pydantic==2.6.1               # Data validation
+
+# Testing
+pytest==8.0.0
+pytest-asyncio==0.23.5
+pytest-cov==4.1.0
+responses==0.24.1             # Mock HTTP requests
+
+# Utilities
+python-dotenv==1.0.1          # Environment variable management
+click==8.1.7                  # CLI framework
+tqdm==4.66.1                  # Progress bars
+colorlog==6.8.2               # Colored logging
+
+# Data visualization (for reports)
+matplotlib==3.8.2
+seaborn==0.13.2
+plotly==5.18.0
+
+# Configuration
+pyyaml==6.0.1
+toml==0.10.2
+
+# Performance
+cachetools==5.3.2             # Caching
+redis==5.0.1                  # Redis client (optional)
+
+# Security
+cryptography==42.0.2
+python-jose==3.3.0            # JWT tokens
+
+# Development tools
+black==24.1.1                 # Code formatter
+flake8==7.0.0                 # Linting
+mypy==1.8.0                   # Type checking
+isort==5.13.2                 # Import sorting
