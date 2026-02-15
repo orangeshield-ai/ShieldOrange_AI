@@ -1,4 +1,4 @@
-# OrangeShield AI
+# ShieldOrange AI
 
 **Weather-Driven Agricultural Supply Forecasting System**
 
@@ -8,7 +8,7 @@ AI-powered prediction system that monitors Florida's orange crop for weather-rel
 
 ## Overview
 
-OrangeShield uses Claude Sonnet 4 to analyze NOAA weather forecasts and predict crop damage from freeze events, hurricanes, disease pressure, and drought conditions. By processing weather data in real-time and cross-referencing with 40 years of historical precedents, the system generates probabilistic crop damage estimates days before official agricultural reports.
+ShieldOrange uses Claude Sonnet 4 to analyze NOAA weather forecasts and predict crop damage from freeze events, hurricanes, disease pressure, and drought conditions. By processing weather data in real-time and cross-referencing with 40 years of historical precedents, the system generates probabilistic crop damage estimates days before official agricultural reports.
 
 **Key Features:**
 - 📡 Real-time NOAA weather monitoring (every 15 minutes)
@@ -24,7 +24,7 @@ OrangeShield uses Claude Sonnet 4 to analyze NOAA weather forecasts and predict 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     OrangeShield AI                         │
+│                     ShieldOrange AI                         │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  ┌──────────────┐     ┌──────────────┐     ┌────────────┐ │
@@ -64,8 +64,8 @@ External Data Sources:
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/orangeshield/orangeshield-ai.git
-cd orangeshield-ai
+git clone https://github.com/shieldorange-ai/shieldorange.git
+cd shieldorange
 ```
 
 ### Step 2: Create Virtual Environment
@@ -100,7 +100,7 @@ Required environment variables:
 ANTHROPIC_API_KEY=sk-ant-...
 
 # Database
-DATABASE_URL=postgresql://user:password@localhost/orangeshield
+DATABASE_URL=postgresql://user:password@localhost/shieldorange
 
 # Optional: Satellite Imagery
 PLANET_API_KEY=your-planet-key
@@ -116,8 +116,8 @@ DEPLOYMENT_PHASE=PAPER_TRADING  # or LIVE
 
 ```bash
 python -c "
-from database import OrangeShieldDatabase
-db = OrangeShieldDatabase()
+from database import ShieldOrangeDatabase
+db = ShieldOrangeDatabase()
 db.connect()
 db.create_tables()
 db.seed_historical_data()
@@ -190,14 +190,14 @@ This runs:
 
 ```bash
 # Using screen
-screen -S orangeshield
+screen -S shieldorange
 python main.py continuous
 # Detach: Ctrl+A, D
 
 # Or using systemd (Linux)
-sudo cp orangeshield.service /etc/systemd/system/
-sudo systemctl enable orangeshield
-sudo systemctl start orangeshield
+sudo cp shieldorange.service /etc/systemd/system/
+sudo systemctl enable shieldorange
+sudo systemctl start shieldorange
 ```
 
 ### Generate Performance Report
@@ -339,9 +339,9 @@ PostgreSQL storage for:
 
 **Example usage:**
 ```python
-from database import OrangeShieldDatabase
+from database import ShieldOrangeDatabase
 
-db = OrangeShieldDatabase()
+db = ShieldOrangeDatabase()
 db.connect()
 
 # Store prediction
@@ -522,12 +522,12 @@ Expected Impact: 13.5% crop damage
 Confidence: 85%
 Timing: 2026-02-03 06:00 UTC
 
-This prediction meets OrangeShield's threshold for
+This prediction meets ShieldOrange's threshold for
 significant agricultural impact. Review full analysis
 and prepare for potential supply disruption.
 
 Prediction ID: PRED_Polk_20260201_100000_abc123
-View: https://dashboard.orangeshield.ai/predictions/abc123
+View: https://dashboard.shieldorange.ai/predictions/abc123
 ```
 
 ---
@@ -561,7 +561,7 @@ python main.py report
 sudo systemctl status postgresql
 
 # Verify connection string
-psql postgresql://user:password@localhost/orangeshield
+psql postgresql://user:password@localhost/shieldorange
 ```
 
 **2. Claude API rate limit**
@@ -590,13 +590,13 @@ MIN_EXPECTED_IMPACT = 0.03       # Lower from 0.05
 
 ```bash
 # View real-time logs
-tail -f /var/log/orangeshield/main.log
+tail -f /var/log/shieldorange/main.log
 
 # Check errors
-tail -f /var/log/orangeshield/errors.log
+tail -f /var/log/shieldorange/errors.log
 
 # Search for specific prediction
-grep "PRED_Polk" /var/log/orangeshield/predictions.log
+grep "PRED_Polk" /var/log/shieldorange/predictions.log
 ```
 
 ---
@@ -652,14 +652,14 @@ class SoilMoistureCollector:
 
 ```bash
 # Build image
-docker build -t orangeshield:latest .
+docker build -t shieldorange:latest .
 
 # Run container
 docker run -d \
-  --name orangeshield \
+  --name shieldorange \
   --env-file .env \
-  -v /var/log/orangeshield:/var/log/orangeshield \
-  orangeshield:latest
+  -v /var/log/shieldorange:/var/log/shieldorange \
+  shieldorange:latest
 ```
 
 ### Cloud Deployment
@@ -673,8 +673,8 @@ aws ecs create-service --cli-input-json file://deploy/aws-ecs.json
 **Google Cloud:**
 ```bash
 # Cloud Run deployment
-gcloud run deploy orangeshield \
-  --image gcr.io/project/orangeshield \
+gcloud run deploy shieldorange \
+  --image gcr.io/project/shieldorange \
   --platform managed \
   --region us-east1
 ```
@@ -691,40 +691,40 @@ MIT License - see LICENSE file
 
 ### Official Channels
 
-**Email:** research@orangeshield.ai  
-**Website:** [orangeshield.ai](https://orangeshield.ai)  
-**X:** [@OrangeShieldAI](https://x.com/OrangeShieldAI)  
-**GitHub:** [github.com/orangeshield-ai/orangeshield](https://github.com/orangeshield-ai/orangeshield)
+**Email:** research@shieldorange.ai  
+**Website:** [shieldorange.ai](https://shieldorange.ai)  
+**X:** [@ShieldOrangeAI](https://x.com/ShieldOrangeAI)  
+**GitHub:** [github.com/shieldorange-ai/shieldorange](https://github.com/shieldorange-ai/shieldorange)
 
 ### Research Inquiries
 
 For questions about methodology, data sources, collaboration opportunities, or institutional partnerships:
 
-📧 **research@orangeshield.ai**
+📧 **research@shieldorange.ai**
 
 ### About the Founder
 
-**Maxim Igorevich**  
+**Vitalik**  
 Lead Researcher & Founder
 
 **Background:**
-- Former Product Marketing Manager at Farmers Edge (2020-2022)
-- 10+ years precision agriculture experience
+- 10+ years precision agriculture experience at ADVAG (Farmers Edge partner)
+- 10+ years trading futures markets
 - Satellite imagery (NDVI), weather data, and soil sensor expertise
 - Managed 240,000+ hectares with AgTech solutions
-- Successfully launched products across EU/Asia markets with 23% market share growth
+- Extensive experience connecting agricultural data to commodity markets
 
-**Why OrangeShield?**
+**Why ShieldOrange?**
 
-OrangeShield applies proven precision agriculture methodologies to commodity forecasting. Having worked directly with satellite imagery (NDVI), weather stations, and soil moisture sensors at scale, Maxim recognized the opportunity to combine these technologies with AI for agricultural supply prediction.
+ShieldOrange bridges two worlds: precision agriculture and futures trading. Having spent over a decade managing crops with satellite technology at ADVAG and simultaneously trading futures markets, Vitalik recognized that nobody was connecting weather prediction with commodity forecasting. ShieldOrange combines both domains of expertise.
 
 ---
 
 ## Support & Documentation
 
-- **Email Support:** research@orangeshield.ai
-- **Bug Reports:** [GitHub Issues](https://github.com/orangeshield-ai/orangeshield/issues)
-- **Feature Requests:** [GitHub Discussions](https://github.com/orangeshield-ai/orangeshield/discussions)
+- **Email Support:** research@shieldorange.ai
+- **Bug Reports:** [GitHub Issues](https://github.com/shieldorange-ai/shieldorange/issues)
+- **Feature Requests:** [GitHub Discussions](https://github.com/shieldorange-ai/shieldorange/discussions)
 
 ---
 
@@ -732,9 +732,9 @@ OrangeShield applies proven precision agriculture methodologies to commodity for
 
 Stay updated on weather prediction research and agricultural forecasting:
 
-🐦 **X:** [@OrangeShieldAI](https://x.com/OrangeShieldAI)  
-🌐 **Website:** [orangeshield.ai](https://orangeshield.ai)  
-📧 **Research Updates:** research@orangeshield.ai
+🐦 **X:** [@ShieldOrangeAI](https://x.com/ShieldOrangeAI)  
+🌐 **Website:** [shieldorange.ai](https://shieldorange.ai)  
+📧 **Research Updates:** research@shieldorange.ai
 
 ---
 
@@ -763,4 +763,4 @@ Academic research:
 
 ---
 
-**OrangeShield AI - Predicting Tomorrow's Weather Events, Today**
+**ShieldOrange AI - Predicting Tomorrow's Weather Events, Today**
