@@ -702,10 +702,7 @@ For questions about methodology, data sources, collaboration opportunities, or i
 
 📧 **research@shieldorange.ai**
 
-### About the Founder
-
-**Vitalik**  
-Lead Researcher & Founder
+### About the Founders
 
 **Background:**
 - 10+ years precision agriculture experience at ADVAG (Farmers Edge partner)
