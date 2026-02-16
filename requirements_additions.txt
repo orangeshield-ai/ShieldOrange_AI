@@ -1,0 +1,21 @@
+# Additional Dependencies for New Scripts
+# Add these to your existing requirements.txt
+
+# Machine Learning (for ensemble_predictor.py)
+scikit-learn>=1.3.0
+joblib>=1.3.0
+
+# Deep Learning (for lstm_predictor.py)  
+torch>=2.0.0
+
+# Scientific Computing (all prediction scripts)
+scipy>=1.11.0
+
+# Note: You already have these in your requirements.txt:
+# - anthropic (Claude AI)
+# - requests (API calls)
+# - numpy, pandas (data processing)
+# - psycopg2-binary (database)
+# - solana, solders (blockchain)
+# - fastapi, uvicorn (dashboard API)
+# - ccxt (trading)
