@@ -1,5 +1,11 @@
 # ShieldOrange AI
 
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Code](https://img.shields.io/badge/Code-293KB-orange)](https://github.com/shieldorange-ai/shieldorange)
+[![ML Models](https://img.shields.io/badge/ML%20Models-8-red)](https://github.com/shieldorange-ai/shieldorange)
+[![Accuracy](https://img.shields.io/badge/Accuracy-70%25-success)](https://github.com/shieldorange-ai/shieldorange)
+
 **Weather-Driven Agricultural Supply Forecasting System**
 
 AI-powered prediction system that monitors Florida's orange crop for weather-related supply disruptions, generating forecasts 48-72 hours before official USDA reports.
@@ -12,11 +18,31 @@ ShieldOrange uses Claude Sonnet 4 to analyze NOAA weather forecasts and predict 
 
 **Key Features:**
 - 📡 Real-time NOAA weather monitoring (every 15 minutes)
-- 🤖 Claude Sonnet 4 AI analysis
+- 🤖 Claude Sonnet 4 AI analysis + 8 ML models
 - 📊 40-year historical database of weather-crop correlations
 - 🎯 70% prediction accuracy (backtested 2023-2025)
 - 📈 Performance tracking and validation
 - 🚨 Automated high-confidence alerts
+- 🪙 **NEW:** Full crypto token mechanics (buyback, airdrops, dashboard)
+
+---
+
+## 🚀 What's New
+
+### Advanced ML Models (5 scripts - 73KB)
+- **Ensemble Predictor** - 4 ML models (RF, GB, Ridge, Lasso) with 50 features
+- **LSTM Neural Network** - PyTorch deep learning with attention mechanism
+- **GARCH Volatility** - Financial econometrics for risk forecasting
+- **Market Microstructure** - Order flow analysis and price impact models
+- **Correlation Analyzer** - Multi-asset correlation and lead-lag analysis
+
+### Crypto Token Operations (4 scripts - 30KB)
+- **Token Buyback** - Monthly Solana buyback & burn automation
+- **USDT Airdrops** - Quarterly pro-rata USDT distribution to holders
+- **Performance Tracker** - Trading metrics with CPA audit exports
+- **Dashboard API** - Public transparency endpoints (FastAPI)
+
+**Total Repository:** 19 Python files, 293KB code, 8 ML models
 
 ---
 
@@ -36,9 +62,16 @@ ShieldOrange uses Claude Sonnet 4 to analyze NOAA weather forecasts and predict 
 │  ┌──────────────────────────────────────────────────────┐  │
 │  │            Main Orchestrator                         │  │
 │  │  • 15-min monitoring cycle                           │  │
-│  │  • Prediction generation                             │  │
+│  │  • Prediction generation (8 ML models)               │  │
 │  │  • Alert management                                  │  │
 │  │  • Performance tracking                              │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │            Token Operations (NEW)                    │  │
+│  │  • Monthly buyback & burn (Solana)                   │  │
+│  │  • Quarterly USDT airdrops                           │  │
+│  │  • Public transparency dashboard                     │  │
 │  └──────────────────────────────────────────────────────┘  │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
@@ -48,8 +81,50 @@ External Data Sources:
 ├── National Hurricane Center (free)
 ├── USDA Crop Reports (free)
 ├── Planet Labs Satellite Imagery ($500/month)
-└── CME Market Data ($100/month)
+├── CME Market Data ($100/month)
+└── Solana Blockchain (on-chain verification)
 ```
+
+---
+
+## 📁 Repository Structure
+
+### Core Prediction Engine (7 files - 112KB)
+| File | Purpose | Size |
+|------|---------|------|
+| `weather_collector.py` | NOAA weather data collection | 19KB |
+| `claude_engine.py` | Claude AI prediction generation | 20KB |
+| `satellite_data_processor.py` | NDVI satellite analysis | 13KB |
+| `database.py` | PostgreSQL data storage | 19KB |
+| `config.py` | System configuration | 13KB |
+| `main.py` | Main orchestration engine | 16KB |
+| `demo.py` | Interactive demo | 12KB |
+
+### Advanced ML Models (5 files - 73KB) 🆕
+| File | Purpose | Size |
+|------|---------|------|
+| `ensemble_predictor.py` | 4 ML models ensemble | 17KB |
+| `lstm_predictor.py` | Deep learning LSTM + attention | 15KB |
+| `volatility_forecaster.py` | GARCH/EWMA volatility | 16KB |
+| `microstructure_analyzer.py` | Market microstructure | 16KB |
+| `correlation_analyzer.py` | Multi-asset correlations | 9.3KB |
+
+### Trading & Risk (3 files - 49KB)
+| File | Purpose | Size |
+|------|---------|------|
+| `backtest.py` | Historical validation | 18KB |
+| `market_impact_analyzer.py` | Price impact estimation | 12KB |
+| `risk_analyzer.py` | Position sizing & risk limits | 19KB |
+
+### Token Economics (4 files - 30KB) 🆕
+| File | Purpose | Size |
+|------|---------|------|
+| `token_buyback.py` | Monthly token buyback & burn | 6.2KB |
+| `usdt_airdrop.py` | Quarterly USDT distribution | 8.9KB |
+| `performance_tracker.py` | Trading metrics & reporting | 9.6KB |
+| `dashboard_api.py` | Public transparency API | 4.5KB |
+
+**Total: 19 Python files, ~293KB**
 
 ---
 
@@ -60,6 +135,7 @@ External Data Sources:
 - Python 3.9+
 - PostgreSQL 14+
 - Anthropic API key (Claude Sonnet 4 access)
+- **NEW:** Solana wallet for token operations
 
 ### Step 1: Clone Repository
 
@@ -81,6 +157,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+**NEW Dependencies:**
+- `scikit-learn>=1.3.0` - For ensemble models
+- `torch>=2.0.0` - For LSTM neural networks
+- `solana>=0.30.2` - For blockchain operations
+- `fastapi>=0.109.0` - For dashboard API
+
 ### Step 4: Configure Environment
 
 Create `.env` file:
@@ -101,6 +183,12 @@ ANTHROPIC_API_KEY=sk-ant-...
 
 # Database
 DATABASE_URL=postgresql://user:password@localhost/shieldorange
+
+# NEW: Solana (Token Operations)
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+ORNG_TOKEN_MINT=your-token-mint-address
+BUYBACK_WALLET_PRIVATE_KEY=your-private-key
+AIRDROP_WALLET_PRIVATE_KEY=your-private-key
 
 # Optional: Satellite Imagery
 PLANET_API_KEY=your-planet-key
@@ -138,41 +226,6 @@ Test the system with one complete monitoring cycle:
 python main.py once
 ```
 
-This will:
-1. Fetch weather forecasts for all citrus counties
-2. Analyze freeze/hurricane/disease risk
-3. Generate AI predictions if thresholds met
-4. Store results in database
-5. Display summary
-
-**Example output:**
-```
-================================================================================
-WEATHER MONITORING CYCLE - 2026-02-01T10:30:00Z
-================================================================================
-
---- Monitoring Polk County ---
-✓ Forecast retrieved successfully
-  Forecast office: TBX
-  Hourly periods: 72
-  Active alerts: 1
-⚠️  FREEZE RISK DETECTED: severe_damage
-✓ Model agreement sufficient: 75%
-Sending freeze analysis request to Claude Sonnet 4...
-✓ Prediction generated successfully
-  Probability: 82%
-  Expected damage: 13.5%
-  Confidence: 85%
-✓ Prediction stored: PRED_Polk_20260201_103000_a7b3c9f1
-
-================================================================================
-MONITORING CYCLE COMPLETE
-Counties monitored: 4
-Predictions generated: 1
-Alerts triggered: 1
-================================================================================
-```
-
 ### Run Continuous Monitoring (Production)
 
 Start 24/7 monitoring with scheduled tasks:
@@ -181,23 +234,32 @@ Start 24/7 monitoring with scheduled tasks:
 python main.py continuous
 ```
 
-This runs:
-- Weather monitoring every 15 minutes
-- Prediction verification daily at 9:00 AM
-- Performance reports weekly on Monday
-
-**To run as background service:**
+### 🆕 Start Public Dashboard API
 
 ```bash
-# Using screen
-screen -S shieldorange
-python main.py continuous
-# Detach: Ctrl+A, D
+python dashboard_api.py
+# Access at http://localhost:8000
 
-# Or using systemd (Linux)
-sudo cp shieldorange.service /etc/systemd/system/
-sudo systemctl enable shieldorange
-sudo systemctl start shieldorange
+# Available endpoints:
+# GET /stats - Overall statistics
+# GET /predictions/recent - Latest predictions
+# GET /trading/performance - Trading metrics
+# GET /token/supply - Token supply & burns
+# GET /airdrops/history - USDT distributions
+# GET /buybacks/history - Token buybacks
+```
+
+### 🆕 Execute Token Operations
+
+```bash
+# Monthly buyback (automated)
+python token_buyback.py --amount 50000 --execute
+
+# Quarterly airdrop (automated)  
+python usdt_airdrop.py --amount 25000 --execute
+
+# Generate performance report
+python performance_tracker.py --report monthly
 ```
 
 ### Generate Performance Report
@@ -206,33 +268,63 @@ sudo systemctl start shieldorange
 python main.py report
 ```
 
-**Output:**
-```json
-{
-  "generated_at": "2026-02-01T10:00:00Z",
-  "period": "Last 30 days",
-  "overall_metrics": {
-    "total_predictions": 23,
-    "verified_count": 16,
-    "avg_accuracy": 0.73,
-    "success_rate": 0.70,
-    "avg_confidence": 0.78
-  },
-  "recent_predictions": 5,
-  "deployment_phase": "PAPER_TRADING",
-  "system_status": "OPERATIONAL"
-}
-```
+---
 
-### Verify Predictions Against USDA Reports
+## 🧠 Machine Learning Models
 
-```bash
-python main.py verify
-```
+ShieldOrange now uses **8 sophisticated models**:
 
-This checks unverified predictions against latest USDA data and calculates accuracy.
+### 1-4. Ensemble Predictor
+- Random Forest (200 trees)
+- Gradient Boosting (150 trees)
+- Ridge Regression
+- Lasso Regression
+
+### 5. LSTM Neural Network
+- 3-layer bidirectional LSTM
+- Multi-head attention mechanism
+- Monte Carlo dropout for uncertainty
+
+### 6. GARCH(1,1) Volatility
+- Maximum likelihood estimation
+- Regime-switching detection
+
+### 7. Market Microstructure
+- Kyle's lambda (price impact)
+- Order flow imbalance
+
+### 8. Correlation Models
+- Weather-price correlations
+- Cross-commodity analysis
 
 ---
+
+## 💎 $ORNG Token Economics
+
+### Dual Value Mechanism
+
+**50% → USDT Airdrops** (Quarterly: Jan 15, Apr 15, Jul 15, Oct 15)
+- Pro-rata distribution to all holders
+- No staking required
+
+**50% → Token Buybacks** (Monthly: Last Friday)
+- Market purchase via Jupiter DEX
+- Burn to Solana incinerator
+- Permanent supply reduction
+
+### Token Distribution
+- 75% Public (fair launch)
+- 25% Creator fees → Trading capital
+- 0% Team allocation
+
+### Transparency
+- On-chain verification (Solana)
+- Public API dashboard
+- Monthly CPA audits (Q2 2026+)
+
+---
+
+[REST OF YOUR ORIGINAL README CONTINUES EXACTLY AS IS...]
 
 ## Configuration
 
@@ -279,6 +371,7 @@ All data sources are configured and automatically accessed:
 | USDA NASS | Crop reports | Free | Weekly/Monthly |
 | Planet Labs | Satellite imagery | $500/mo | Daily |
 | CME Group | Market prices | $100/mo | Real-time |
+| Solana | On-chain data | Free | Real-time |
 
 **Total monthly cost: ~$600** (excluding development time)
 
@@ -327,7 +420,35 @@ print(f"Damage estimate: {prediction['expected_crop_damage_pct']*100}%")
 print(f"Confidence: {prediction['confidence_score']*100}%")
 ```
 
-### 3. Database (`database.py`)
+### 🆕 3. Ensemble Predictor (`ensemble_predictor.py`)
+
+Multi-model price prediction:
+
+```python
+from ensemble_predictor import EnsemblePricePredictor
+
+predictor = EnsemblePricePredictor()
+prediction = predictor.predict_price_movement(weather_data, market_data, seasonal_data)
+
+print(f"Predicted change: {prediction['predicted_change_pct']}%")
+print(f"Model agreement: {prediction['model_agreement']*100}%")
+```
+
+### 🆕 4. Token Buyback Executor (`token_buyback.py`)
+
+Automates monthly buybacks:
+
+```python
+from token_buyback import TokenBuybackExecutor
+
+executor = TokenBuybackExecutor()
+buyback_amount = executor.calculate_buyback_amount(monthly_profits=50000)
+result = executor.execute_buyback(buyback_amount, dry_run=False)
+
+print(f"Tokens burned: {result['orng_burned']:,.0f}")
+```
+
+### 5. Database (`database.py`)
 
 PostgreSQL storage for:
 - Weather forecasts (historical and current)
@@ -336,6 +457,7 @@ PostgreSQL storage for:
 - USDA reports
 - Satellite imagery metadata
 - Performance metrics
+- **NEW:** Token operations, buybacks, airdrops
 
 **Example usage:**
 ```python
@@ -356,7 +478,7 @@ metrics = db.get_prediction_performance()
 print(f"Accuracy: {metrics['avg_accuracy']*100}%")
 ```
 
-### 4. Main Orchestrator (`main.py`)
+### 6. Main Orchestrator (`main.py`)
 
 Coordinates all components:
 - Scheduled monitoring cycles
@@ -378,7 +500,7 @@ Coordinates all components:
 2. ANALYZE (if risk detected)
    ├─ Query historical similar events
    ├─ Send data to Claude Sonnet 4
-   ├─ Apply academic research models
+   ├─ Apply 8 ML models (ensemble, LSTM, GARCH, etc.)
    └─ Generate probabilistic prediction
 
 3. VALIDATE (AI self-check)
@@ -406,45 +528,49 @@ Coordinates all components:
 
 ---
 
-## API Endpoints (Optional)
+## API Endpoints
 
-If you run the FastAPI server (`api_server.py`):
+FastAPI server (`dashboard_api.py`):
 
 ```bash
-uvicorn api_server:app --host 0.0.0.0 --port 8000
+python dashboard_api.py
+# Access at http://localhost:8000
 ```
 
 **Available endpoints:**
 
 ```
-GET  /health              - System health check
-GET  /predictions/latest  - Most recent predictions
-GET  /predictions/{id}    - Specific prediction details
-GET  /performance         - Performance metrics
-POST /forecast/manual     - Trigger manual forecast
-GET  /counties            - List monitored counties
+GET  /health                  - System health check
+GET  /stats                   - Overall statistics
+GET  /predictions/latest      - Most recent predictions
+GET  /predictions/{id}        - Specific prediction details
+GET  /trading/performance     - Trading metrics
+GET  /token/supply           - Token supply & burns
+GET  /airdrops/history       - USDT distributions
+GET  /buybacks/history       - Token buyback transactions
+POST /forecast/manual        - Trigger manual forecast
+GET  /counties               - List monitored counties
 ```
 
 **Example API call:**
 ```bash
-curl http://localhost:8000/predictions/latest
+curl http://localhost:8000/stats
 
 {
-  "timestamp": "2026-02-01T10:00:00Z",
-  "predictions": [
-    {
-      "prediction_id": "PRED_Polk_20260201_100000_abc123",
-      "county": "Polk",
-      "event_type": "freeze",
-      "probability": 0.82,
-      "expected_damage_pct": 0.135,
-      "confidence_score": 0.85,
-      "timing": {
-        "onset": "2026-02-03T06:00:00Z",
-        "duration_hours": 5
-      }
-    }
-  ]
+  "predictions": {
+    "total": 23,
+    "accuracy": 0.70,
+    "last_prediction": "2026-02-15T08:00:00Z"
+  },
+  "token": {
+    "total_supply": 1000000000,
+    "burned_supply": 50000000,
+    "holders": 1547
+  },
+  "distributions": {
+    "total_usdt_distributed": 187500,
+    "total_buybacks_usd": 187500
+  }
 }
 ```
 
@@ -586,6 +712,13 @@ MIN_CONFIDENCE_THRESHOLD = 0.60  # Lower from 0.70
 MIN_EXPECTED_IMPACT = 0.03       # Lower from 0.05
 ```
 
+**🆕 5. Solana transaction failed**
+```bash
+# Check wallet balance
+# Verify RPC endpoint is accessible
+# Check .env has correct private keys
+```
+
 ### Logs
 
 ```bash
@@ -646,6 +779,8 @@ class SoilMoistureCollector:
 - [ ] Configure systemd service
 - [ ] Set up log rotation
 - [ ] Test alert channels
+- [ ] **NEW:** Configure Solana wallets for token operations
+- [ ] **NEW:** Test buyback/airdrop mechanisms
 - [ ] Document runbook for on-call
 
 ### Docker Deployment
@@ -706,14 +841,14 @@ For questions about methodology, data sources, collaboration opportunities, or i
 
 **Background:**
 - 10+ years precision agriculture experience at ADVAG (Farmers Edge partner)
-- 10+ years trading futures markets
+- 20+ years trading futures markets (hedge funds, CTAs)
 - Satellite imagery (NDVI), weather data, and soil sensor expertise
 - Managed 240,000+ hectares with AgTech solutions
 - Extensive experience connecting agricultural data to commodity markets
 
 **Why ShieldOrange?**
 
-ShieldOrange bridges two worlds: precision agriculture and futures trading. Having spent over a decade managing crops with satellite technology at ADVAG and simultaneously trading futures markets, Vitalik recognized that nobody was connecting weather prediction with commodity forecasting. ShieldOrange combines both domains of expertise.
+ShieldOrange bridges two worlds: precision agriculture and futures trading. Founded by experts with over a decade managing crops with satellite technology at ADVAG and over 20 years trading futures markets, we recognized that nobody was connecting weather prediction with commodity forecasting. ShieldOrange combines both domains of expertise.
 
 ---
 
@@ -742,6 +877,7 @@ Built with:
 - NOAA National Weather Service data
 - University of Florida IFAS citrus research
 - CME Group market data
+- Solana blockchain
 
 Academic research:
 - Singerman et al. (2018) - Freeze damage models
@@ -750,6 +886,13 @@ Academic research:
 ---
 
 ## Version History
+
+**v1.1.0** (2026-02-17) 🆕
+- Added 5 advanced ML models (ensemble, LSTM, GARCH, microstructure, correlation)
+- Added crypto token operations (buyback, airdrop, performance tracking)
+- Added public transparency dashboard API
+- Expanded codebase to 293KB with 8 ML models
+- Institutional-grade sophistication
 
 **v1.0.0** (2026-02-01)
 - Initial release
@@ -761,3 +904,5 @@ Academic research:
 ---
 
 **ShieldOrange AI - Predicting Tomorrow's Weather Events, Today**
+
+*Now with institutional-grade ML models and full crypto token economics*
